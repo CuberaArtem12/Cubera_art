@@ -26,9 +26,9 @@ namespace lb7_2.Model
                 typeHunting = value; 
             }
         }
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Click-click!");
+           return "Click-click!";
         }
         public override string ToString()
         {

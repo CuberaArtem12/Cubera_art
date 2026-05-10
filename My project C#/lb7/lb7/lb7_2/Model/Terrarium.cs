@@ -8,26 +8,26 @@ using System.Threading.Tasks;
 
 namespace lb7_2.Model
 {
-    internal class Terrarium
+    public class Terrarium
     {
-        public string name { get; set; }
-        private Animal[] animals;
-        
-        public Terrarium() {
-            name = "NoName";
-            animals=new Animal[0];
+        public static int maximumcapacity = 10;
+        public Animal[] animals = new Animal[maximumcapacity];
+        private int animalsCount = 0;
+        public int AnimalsCount { get { return animalsCount; } 
+        set { animalsCount = value; }
         }
-        public Terrarium(string name, Animal[] animals) {
-            this.name = name;
+        public Terrarium() {
+
+        }
+        public Terrarium( Animal[] animals) {
+            
             this.animals = animals;
             
         }
         
-        public Animal[] Animals {
-        get { return animals; }
-            set {
-                if (value == null) throw new SetDBirthdException("no less than zero");
-                animals = value; }
+        public Animal[] Animals
+        {
+            get { return animals; }
         }
 
         public int TotalamountFoodMonth()
@@ -41,13 +41,17 @@ namespace lb7_2.Model
             
         
         }
-        public string AnimalList() {
-            string list = "";
+        public string AnimalList(Animal[] animals) {
+            StringBuilder list = new StringBuilder();
             foreach (var animal in animals)
             {
-                list += " - " + animal+ "\n";
+                list.Append(" - ")
+               .Append(animal)
+               .Append(" Sound: ")
+               .Append(animal.MakeSound())
+               .Append("\n");
             }
-            return list;
+            return list.ToString(); 
         }
         public void AddAnimals(params Animal[] Newanimals)
         {
@@ -63,7 +67,7 @@ namespace lb7_2.Model
         }
         public override string ToString()
         {
-            return "Name: "+name+"\nAnimal List:\n"+ AnimalList()+"Food in month: "+ TotalamountFoodMonth();
+            return "\nAnimal List:\n"+ AnimalList(animals) +"Food in month: "+ TotalamountFoodMonth();
         }
 
     }

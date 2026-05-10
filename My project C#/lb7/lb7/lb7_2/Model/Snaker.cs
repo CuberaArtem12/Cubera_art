@@ -36,9 +36,9 @@ namespace lb7_2.Model
             get { return isVenomous; }
             set { isVenomous = value;}
         }
-        public override void MakeSound()
+        public override string MakeSound()
         {
-            Console.WriteLine("Shh sh sh sh!!");
+            return "Shh sh sh sh!!";
         }
         public override string ToString() { 
         return "Snake "+base.ToString()+ "\nLenght: "+ lenght+ "\nis it poisonous? "+ IsVenomous;

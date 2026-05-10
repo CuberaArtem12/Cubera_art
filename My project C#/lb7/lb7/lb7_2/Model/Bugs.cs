@@ -9,7 +9,7 @@ namespace lb7_2.Model
 {
     public class Bugs:Animal
     {
-        private bool hasWings { get; set; }
+        public bool? hasWings { get; set; }
         public Bugs() {
             hasWings = false;
         }
@@ -17,8 +17,8 @@ namespace lb7_2.Model
         {
             hasWings = _hasWings;
         }
-        public override void MakeSound() {
-            Console.WriteLine("beetle sounds");
+        public override string MakeSound() {
+            return "beetle sounds";
         }
         public override string ToString()
         {

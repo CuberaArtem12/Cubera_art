@@ -6,28 +6,34 @@ using System.Threading.Tasks;
 
 namespace lb7.Model
 {
-    internal class WildAnimal
+    public class WildAnimal
     {
+
         private string name;
         private string animalSpecies;
         private int age;
-       
+
         public WildAnimal(string _name, int _age, string animalSpecies)
         {
             name = _name;
             age = _age;
             this.animalSpecies = animalSpecies;
         }
-        public WildAnimal() {
+        public WildAnimal()
+        {
             name = "NoName";
             age = 0;
             animalSpecies = "Unspecified";
         }
 
-        public string Name { 
+        public string Name
+        {
             get { return name; }
-            set {if(value==string.Empty) throw new ArgumentOutOfRangeException();
-                name = value; }
+            set
+            {
+                if (value == string.Empty) throw new ArgumentOutOfRangeException();
+                name = value;
+            }
         }
         public string AnimalSpecies
         {
@@ -38,14 +44,18 @@ namespace lb7.Model
                 animalSpecies = value;
             }
         }
-        public int Age { 
+        public int Age
+        {
             get { return age; }
-            set {if(value<0) throw new ArgumentOutOfRangeException();
-                age = value; }
+            set
+            {
+                if (value < 0) throw new ArgumentOutOfRangeException();
+                age = value;
+            }
         }
-        public override string ToString() {
-           return " name of the animal: "+ name + " Age: " + age + " animal species: " + animalSpecies;
+        public override string ToString()
+        {
+            return " name of the animal: " + name + " Age: " + age + " animal species: " + animalSpecies;
         }
-
     }
 }

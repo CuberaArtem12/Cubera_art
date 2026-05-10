@@ -76,7 +76,7 @@ namespace lb7_2.Model
                 numberLivingTogether = value;
             }
         }
-        public abstract void MakeSound();
+        public abstract string MakeSound();
         public override string ToString()
         {
             return "Name: "+name+" Age: "+age+" Type: "+ type+ " weight: "+kg+ " food source: "+ typeFoodSource+ "\namount of food expenses per month: "+ amountFoodMonth

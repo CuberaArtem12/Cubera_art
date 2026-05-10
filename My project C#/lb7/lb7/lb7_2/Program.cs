@@ -15,7 +15,7 @@ namespace lb7_2
              new Bugs ("Zhenya",2,"jokal",5.5f,TypeFoodSource.Herbivores, 10 , 100,true)
 
             };
-            Terrarium terrarium = new Terrarium("Smallworld", animals );
+            Terrarium terrarium = new Terrarium( animals );
             Console.WriteLine(terrarium.ToString());
         }
     }
