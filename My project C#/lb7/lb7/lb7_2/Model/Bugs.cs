@@ -22,7 +22,7 @@ namespace lb7_2.Model
         }
         public override string ToString()
         {
-            return "Bug " + base.ToString() + "\nHas wings: "+ hasWings;
+            return  base.ToString() + "\nHas wings: "+ hasWings;
         }
     }
 }

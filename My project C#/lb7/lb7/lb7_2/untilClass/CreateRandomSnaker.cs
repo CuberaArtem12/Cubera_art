@@ -12,18 +12,14 @@ namespace lb7_2.untilClass
     {
         public static readonly Random _random = new Random();
         private static string[] Names = { "Sly", "Slither", "Monty", "Jasper", "Severus", "Nagini", "Ziss", "Kaa" };
-        private static string[] Types = { "Pythons", "Boas", "Vipers", "Cobras", "Colubrids", "Sea snakes", "Blind snakes", "Adders" };
+        private static string Types = "Snaker";
 
         public static string GetName()
         {
             return Names[_random.Next(0, Names.Length)];
 
         }
-        public static string GetTypes()
-        {
-            return Types[_random.Next(0, Types.Length)];
-
-        }
+       
         public static int GetAge()
         {
             return _random.Next(0, 20);
@@ -46,13 +42,13 @@ namespace lb7_2.untilClass
             return _random.Next(10, 20);
         }
        
-        public static Snaker CreateSpiderRandom()
+        public static Snaker CreateSnakerRandom()
         {
             return new Snaker()
             {
                 Name = GetName(),
                 Age = GetAge(),
-                Type = GetTypes(),
+                Type=Types,
                 Kg = GetKg(),
                 TypefoodSource = GettypeFoodSource(),
                 AmountFoodMonth = GetamountFoodMonth(),

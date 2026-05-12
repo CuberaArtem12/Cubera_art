@@ -1,5 +1,7 @@
 ﻿using lb7_2.Model;
 using lb7_2.My_enum;
+using lb7_2.Data;
+using lb7_2.untilClass;
 
 namespace lb7_2
 {
@@ -9,14 +11,18 @@ namespace lb7_2
     {
         static void Main(string[] args)
         {
-            Animal[] animals = new Animal[]
-            {
-            new Spider ("Peter",8,"kohald",12.5f,TypeFoodSource.Carnivores, 30 , 3,TypeHunting.SpidersWeb),
-             new Bugs ("Zhenya",2,"jokal",5.5f,TypeFoodSource.Herbivores, 10 , 100,true)
-
-            };
-            Terrarium terrarium = new Terrarium( animals );
-            Console.WriteLine(terrarium.ToString());
+            Terrarium[] terrariumList = new Terrarium[]
+                {
+            new Terrarium(TypeTerrarium.TerrariumBugs, new Animal[Terrarium.maximumcapacity]),
+            new Terrarium(TypeTerrarium.TerrariumSnaker, new Animal[Terrarium.maximumcapacity]),
+            new Terrarium(TypeTerrarium.TerrariumSpider, new Animal[Terrarium.maximumcapacity])
+                };
+            Zoo zoo= new Zoo("TarTar", terrariumList);
+            Datazoo.ZooData(zoo);
+            Console.WriteLine($"welcome to the Zoo {zoo.name}");
+            zoo.AddAnimalsTerraium();
+            zoo.ShowTerarium();
+            Console.WriteLine($"Total {zoo.name} wastes food on motnth: {zoo.TotalFoodInMoth()}");
         }
     }
 }

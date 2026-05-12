@@ -12,18 +12,14 @@ namespace lb7_2.untilClass
     {
         public static readonly Random _random = new Random();
         private static string[] Names = { "Zhenya", "Lord", "Bugsy", "Barnaby", "Buster", "Benny", "Bertie", "Boris", "Bruno", "Baxter" };
-        private static string[] Types = { "Ground beetles", "Leaf beetles", "Ladybug beetles", "Longhorn beetles", "Scarab beetles", "Weevils", "Stag beetles", "Fireflies" };
+        private static string Types =  "Bugs" ;
 
         public static string GetName()
         {
             return Names[_random.Next(0, Names.Length)];
 
         }
-        public static string GetTypes()
-        {
-            return Types[_random.Next(0, Types.Length)];
-
-        }
+       
         public static int GetAge()
         {
             return _random.Next(0, 20);
@@ -47,15 +43,15 @@ namespace lb7_2.untilClass
         }
         public static bool GethasWings()
         { 
-        return (_random.Next(1, 2) ==2) ? true : false;
+        return (_random.Next(1, 3) ==2) ? true : false;
         }
-        public static Bugs CreateSpiderRandom()
+        public static Bugs CreateBugsRandom()
         {
             return new Bugs()
             {
                 Name = GetName(),
                 Age = GetAge(),
-                Type = GetTypes(),
+                Type = Types,
                 Kg = GetKg(),
                 TypefoodSource = GettypeFoodSource(),
                 AmountFoodMonth = GetamountFoodMonth(),

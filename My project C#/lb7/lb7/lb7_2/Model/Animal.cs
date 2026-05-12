@@ -79,7 +79,7 @@ namespace lb7_2.Model
         public abstract string MakeSound();
         public override string ToString()
         {
-            return "Name: "+name+" Age: "+age+" Type: "+ type+ " weight: "+kg+ " food source: "+ typeFoodSource+ "\namount of food expenses per month: "+ amountFoodMonth
+            return "Name: "+name+" Age: "+age+" Type: "+ type + " weight: "+kg+ " food source: "+ typeFoodSource+ "\namount of food expenses per month: "+ amountFoodMonth
                 + "\nthe number of animals it can tolerate: " + numberLivingTogether;
         }
         public override bool Equals(object obj) {

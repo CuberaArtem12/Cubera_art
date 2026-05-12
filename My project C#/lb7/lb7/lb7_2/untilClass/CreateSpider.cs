@@ -13,18 +13,14 @@ namespace lb7_2.untilClass
     {
         public static readonly Random _random = new Random();
         private static string[] Names = { "Artem", "Handrid", "Herda","PocoLoco" };
-        private static string[] Types = { "Orb-weavers", "Wolf spiders", "Jumping spiders", "Cellar spiders", "Cobweb spiders", "Crab spiders", "Nursery web spiders", "Funnel-web spiders" };
+        private static string Types =  "Spider";
 
         public static string GetName()
         {
             return Names[_random.Next(0, Names.Length)];
 
         }
-        public static string GetTypes()
-        {
-            return Types[_random.Next(0, Types.Length)];
-
-        }
+       
         public static int GetAge() {
             return _random.Next(1, 20);
         }
@@ -53,7 +49,7 @@ namespace lb7_2.untilClass
             {
                 Name = GetName(),
                 Age = GetAge(),
-                Type = GetTypes(),
+                Type = Types,
                 Kg= GetKg(),
                 TypefoodSource = GettypeFoodSource(),
                 AmountFoodMonth= GetamountFoodMonth(),

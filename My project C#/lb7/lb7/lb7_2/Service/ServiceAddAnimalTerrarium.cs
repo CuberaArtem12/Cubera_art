@@ -10,8 +10,9 @@ namespace lb7_2.Service
 {
     public class ServiceAddAnimalTerrarium
     {
-        
-        public void AddAnimals(Terrarium terarium,Animal[] animals, params Animal[] Newanimals)
+       
+        Terrarium terarium { get; set; }
+        public  void AddAnimals(Terrarium terarium, params Animal[] Newanimals)
         {
             int freespace=0;
             Animal[] Updateanimals = new Animal[Terrarium.maximumcapacity];
@@ -19,17 +20,22 @@ namespace lb7_2.Service
             
                 if (terarium.AnimalsCount > 0)
                 {
-                    Array.Copy(animals, 0, Updateanimals, 0, terarium.AnimalsCount);
+                    Array.Copy(terarium.animals, 0, Updateanimals, 0, terarium.AnimalsCount);
                 }
-            if (terarium.AnimalsCount + Newanimals.Length <= Terrarium.maximumcapacity) {
+            if (terarium.AnimalsCount + Newanimals.Length <= Terrarium.maximumcapacity)
+            {
                 Array.Copy(Newanimals, 0, Updateanimals, terarium.AnimalsCount, Newanimals.Length);
-                terarium.AnimalsCount = Newanimals.Length;
+                terarium.animals = Updateanimals;
                 return;
             }
             freespace = Terrarium.maximumcapacity - terarium.AnimalsCount;
-            Array.Copy(Newanimals, 0, Updateanimals, terarium.AnimalsCount, freespace);
-           
-            
+            if (freespace > 0)
+            {
+                Array.Copy(Newanimals, 0, Updateanimals, terarium.AnimalsCount, freespace);
+            }
+            terarium.animals = Updateanimals;
+
+
         }
     }
 }
