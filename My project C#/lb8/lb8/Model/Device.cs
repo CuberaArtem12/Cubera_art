@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lb8.Model
 {
-    public class Device : IComparable,ICloneable
+    public class Device : IComparable<Device>,ICloneable
     {
         public string Name { get; set; }
         public double Price { get; set;}
@@ -27,14 +27,11 @@ namespace lb8.Model
         {
             return "Name: " + Name + " Price: " + Price + "\nDevice release date: " + DataRelease.ToShortDateString();
         }
-        public int CompareTo(object obj)
+        public int CompareTo(Device other)
         {
-            if (obj == null) return 1;
-            Device OtherPrice = obj as Device;
-            if (OtherPrice != null)
-                return this.Price.CompareTo(OtherPrice.Price);
-            else 
-                throw new SetDMydException("Object is not a Price");
+            if (other == null) return 1;
+            return this.Price.CompareTo(other.Price);
+          
         }
         public object Clone()
         {
