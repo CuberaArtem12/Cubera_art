@@ -12,28 +12,25 @@ namespace lb10.TestSystem
     {
         public static Random rnd = new Random();
         public static void RunTests() {
-            Action showFullDate = ServiceDate.MethodDateNow;
-            showFullDate += ServiceDate.MethodTimeNow;
-            showFullDate += ServiceDate.MethodDayOfWeek;
-
+            ServiceDate serviceisTime = new ServiceDate();
+            ServiceNumber serviceNumber = new ServiceNumber();
+            ServiceGeometry serviceGeometry = new ServiceGeometry();
             Console.WriteLine("Date info");
-            showFullDate();
+            serviceisTime.MethodDateNow();
+            serviceisTime.MethodTimeNow();
+            serviceisTime.MethodDayOfWeek();
             Console.ReadKey();
             Console.WriteLine("Prime and Finobachi number");
-            Predicate<int> IsPrimeNumber = ServiceNumber.PrimeNumber;
-            Predicate<int> IsFinobachiNumber= ServiceNumber.ifNumberFinobachi;
             int a = rnd.Next(0,100);
             Console.WriteLine($"Number: {a}");
-            Console.WriteLine($"Is this a prime number? {IsPrimeNumber(a)}");
-            Console.WriteLine($"Is this a Finobachi number? {IsFinobachiNumber(a)}");
+            Console.WriteLine($"Is this a prime number? {serviceNumber.PrimeNumber(a)}");
+            Console.WriteLine($"Is this a Fibonacci number? {serviceNumber.ifNumberFinobachi(a)}");
             Console.ReadKey();
             Console.WriteLine("Geometry Methods: ");
-            Func<double, double, double> triangleCalc = ServiceGeometry.TriangleArea;
-            Func<double, double, double> rectangleCalc = ServiceGeometry.RectangleArea;
             double x = 10.5;
             double y = 5.4;
-            Console.WriteLine($"Triangle area ({x}; {y}): {triangleCalc(x, y)}");
-            Console.WriteLine($"Rectangle area ({x}; {y}): {rectangleCalc(x, y)}");
+            Console.WriteLine($"Triangle area ({x}; {y}): {serviceGeometry.TriangleArea(x, y)}");
+            Console.WriteLine($"Rectangle area ({x}; {y}): {serviceGeometry.RectangleArea(x, y)}");
             Console.ReadKey();
         }
     }
