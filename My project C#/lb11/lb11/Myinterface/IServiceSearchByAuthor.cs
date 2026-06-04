@@ -8,6 +8,6 @@ namespace lb11.Myinterface
 {
     public interface IServiceSearchByAuthor<T>
     {
-        ICatalogItem[] ServiceSearchByAuthor(T element);
+        ICatalogItem[] ServiceSearchByAuthor(string serchAuthor, T elementt);
     }
 }

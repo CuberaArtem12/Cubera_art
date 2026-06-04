@@ -17,14 +17,19 @@ namespace lb10_2.TestingSystem
             new Item("LapTop",10,2.0f),
             new Item("Phone",2,0.14f)
             };
-            suitcase.OnItemAdding += Handler.Masage;
+            foreach (Item item in items) {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("====Add item in suitcase====");
+            suitcase.OnItemAdding += Handler.Erors;
+            suitcase.Listener += Handler.Message;
             for (int i = 0; i < items.Length; i++) {
                 suitcase.AddItemInSuitcase(items[i]);
             }
             ServPrint.Print(suitcase);
             Console.ReadKey();
             try {
-                suitcase.AddItemInSuitcase(new Item("LapTop", 50, 2.0f));
+                suitcase.AddItemInSuitcase(new Item("LapTop A", 50, 2.0f));
             }
             catch(Exception ex) {
                 Console.WriteLine(ex.Message);

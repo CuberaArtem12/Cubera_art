@@ -45,7 +45,7 @@ namespace lb11.UntilClass
                 Author = GetAuthors(),
                 Title = GetTitles(),
                 ReleaseDate = GetReleaseDate(),
-                BooksList = GetBookList()
+                Colection = GetBookList()
             };
         }
     }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using lb11.Service;
+using lb11.Service.ServicePrintFolger;
 
 namespace lb11.Model.Edition
 {
@@ -27,7 +27,7 @@ namespace lb11.Model.Edition
         }
         public override string ToString()
         {
-            return "Title: " + Title+ " Release Date: " + ReleaseDate+ " Genres: "+ServicePrintMass.PrintHorizontalMass(Genres);
+            return "Book Title: " + Title+ " Release Date: " + ReleaseDate+" Author " + Author + " Genres: "+ServicePrintMass.PrintHorizontalMass(Genres);
         }
         public override bool Equals(object obj)
         {

@@ -12,34 +12,32 @@ namespace lb11.Service.LibraryManeger
 {
     public class SearchByAuthor:IServiceSearchByAuthor<Library>
     {
-        public ICatalogItem[] ServiceSearchByAuthor(Library library) {
+        public ICatalogItem[] ServiceSearchByAuthor(string serchAuthor,Library library) {
             if (library == null || library.CatalogItems == null) return new ICatalogItem[0];
-            Console.WriteLine("Input Search Author ");
-            string f=Console.ReadLine();
-            ICatalogItem[] results = new ICatalogItem[RecalculateCount.CurCount(library.CatalogItems)];
             int count = 0;
             foreach (var item in library.CatalogItems) {
-                if (item == null) continue;
-                bool checkSerch = false;
-                if (item.Author.Equals(f, StringComparison.OrdinalIgnoreCase)) {
-                    checkSerch=true;
+                  if (item == null) continue;
+                if (CheckingPresenceSomething.CheckAuthor(serchAuthor, item)) { 
+                 count++;
                 }
-                else if (item is IBooksColection collection) {
-                    foreach (var itm in collection.BooksList) {
-                        if (itm != null) continue;
-                        if (itm.Author.Equals(f, StringComparison.OrdinalIgnoreCase))
-                        {
-                            checkSerch = true;
-                            break;
-                        }
-                    }
+            }
+                  
+            ICatalogItem[] results = new ICatalogItem[count];
+            int index = 0;
+            foreach (var item in library.CatalogItems) {
+                if (CheckingPresenceSomething.CheckAuthor(serchAuthor, item))
+                {
+                    results[index] = item;
+                    index++;
                 }
-                if (checkSerch) {
-                results[count] = item;
-                    count++;
-                }
+
             }
             return results;
         }
+        //Принцип відкритості/закритості(Open/Closed Principle – OCP).
+        //Програмні сутності(класи, модулі, функції) повинні бути відкритими для розширення, але закритими для модифікацій.Це означає, 
+        //що новий функціонал додається через створення нових класів чи модулів, а не шляхом модифікації існуючих.
+        //Принцип єдиної відповідальності(Single Responsibility Principle – SRP).
+        //Клас повинен мати лише одну причину для зміни.Це означає, що клас повинен виконувати лише одну конкретну функцію або завдання.
     }
 }

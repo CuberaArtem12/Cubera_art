@@ -1,5 +1,5 @@
 ﻿using lb11.Myinterface;
-using lb11.Service;
+using lb11.Service.ServicePrintFolger;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +30,7 @@ namespace lb11.Model.Edition
         }
         public override string ToString()
         {
-            return "Title: " + Title + " Release Date: " + ReleaseDate + " Genres: " + ServicePrintMass.PrintHorizontalMass(MainHeadlines);
+            return "Newpaper Title: " + Title + " Release Date: " + ReleaseDate +" Author " + Author + " Genres: " + ServicePrintMass.PrintHorizontalMass(MainHeadlines);
         }
         public override bool Equals(object obj)
         {

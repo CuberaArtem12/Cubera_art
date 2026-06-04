@@ -1,10 +1,12 @@
-﻿namespace lb11
+﻿using lb11.TestSystem;
+
+namespace lb11
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            TestOne.Test();
         }
     }
 }

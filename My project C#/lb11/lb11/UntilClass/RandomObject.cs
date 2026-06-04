@@ -20,5 +20,7 @@ namespace lb11.UntilClass
                 default: return CreateRandomBooks.GetRandomBook();
             }
         }
+        //Принцип єдиної відповідальності(Single Responsibility Principle – SRP).
+        //Клас повинен мати лише одну причину для зміни.Це означає, що клас повинен виконувати лише одну конкретну функцію або завдання.
     }
 }

@@ -1,4 +1,5 @@
 ﻿using lb11.Myinterface;
+using lb11.Service.ServicePrintFolger;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,5 +20,11 @@ namespace lb11.Model
             this.CatalogItems = CatalogItems;
         
         }
+        public override string ToString()
+        {
+            return "Name: " + Name +"\n===Catalog===\n" + ServicePrintMass.PrintHorizontalMass(CatalogItems);
+        }
+       
+
     }
 }

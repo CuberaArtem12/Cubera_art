@@ -33,6 +33,7 @@ namespace lb10_2.Models
 
         }
         public event SuitcaseHandler? OnItemAdding;
+        public event SuitcaseHandler? Listener;
         public void AddItemInSuitcase(Item item) {
             if (item == null) return;
             int curVolume=RecalculateVolume.CurVolume(items);
@@ -46,6 +47,7 @@ namespace lb10_2.Models
             newDrvices[newDrvices.Length - 1] = item;
             Weight += item.weight;
             this.items = newDrvices;
+            Listener?.Invoke(item);
         }
         public string itemsListinSuicase(Item[] items)
         {
