@@ -43,5 +43,7 @@ namespace lb11.Model.Edition
         {
             return HashCode.Combine(Title, Author, ReleaseDate);
         }
+        //Принцип єдиної відповідальності(Single Responsibility Principle – SRP).
+        //Клас повинен мати лише одну причину для зміни.Це означає, що клас повинен виконувати лише одну конкретну функцію або завдання.
     }
 }

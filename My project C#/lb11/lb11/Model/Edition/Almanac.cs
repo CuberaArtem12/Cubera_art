@@ -33,5 +33,7 @@ namespace lb11.Model.Edition
         {
           return "Almanac Title: " + Title + " Release Date: " + ReleaseDate + " Author " + Author +  " \n====Books:====\n " + ServicePrintMass.PrintVerticalMass(Collection) +"\nEnd Almanac\n"; 
         }
+        //Принцип єдиної відповідальності(Single Responsibility Principle – SRP).
+        //Клас повинен мати лише одну причину для зміни.Це означає, що клас повинен виконувати лише одну конкретну функцію або завдання.
     }
 }
