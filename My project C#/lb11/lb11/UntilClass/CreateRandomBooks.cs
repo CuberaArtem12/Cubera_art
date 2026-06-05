@@ -1,4 +1,5 @@
 ﻿using lb11.Model.Edition;
+using lb11.Myinterface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lb11.UntilClass
 {
-    public class CreateRandomBooks
+    public class CreateRandomBooks:IGetItem
     {
         public static readonly Random _random = new Random();
         private static string[] Authors = {"Artem Lord", "Gleb the Wise", "Speedrunner Zhenya","Odin", "Bicycle", "Ayanokodzi Kiyotaka" };
@@ -35,7 +36,7 @@ namespace lb11.UntilClass
             }
             return res;
         }
-        public static Book GetRandomBook() {
+        public ICatalogItem GetItem() {
             return new Book()
             {
                 Author = GetAuthors(),
@@ -44,5 +45,7 @@ namespace lb11.UntilClass
                 Genres = GetGenRes(),
             };
         }
+        //Принцип зв’язності(Dependency Inversion Principle – DIP).
+        //Залежності повинні спрямовуватися на абстракції, а не на конкретні реалізації.Це дозволяє створювати гнучкі та легко змінювані системи.
     }
 }

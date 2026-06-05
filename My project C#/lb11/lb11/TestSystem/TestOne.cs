@@ -2,6 +2,7 @@
 using lb11.Myinterface;
 using lb11.Service.LibraryManeger;
 using lb11.Service.ServicePrintFolger;
+using lb11.UntilClass;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,16 @@ namespace lb11.TestSystem
     public class TestOne
     {
         public static void Test() {
+            IGetItem bookService = new CreateRandomBooks();
+            IGetItem newspaperService = new CreateRandomNewPaper();
+            IGetItem almanacService = new CreateRandomAlmanac(bookService);
+            IGetItem randomObjectService = new RandomObject(bookService, newspaperService, almanacService);
+            LybraryAdd lybraryAdd = new LybraryAdd(randomObjectService);
             int maxcount = 20;
             Library myLibrary = new Library("Zhenya's Library", new ICatalogItem[20]);
             for (int i = 0; i < 20; i++)
             {
-                LybraryAdd.AddRandom(myLibrary);
+                lybraryAdd.AddRandom(myLibrary);
             }
             ServicePrint.Print(myLibrary);
             SearchByAuthor searchService = new SearchByAuthor();

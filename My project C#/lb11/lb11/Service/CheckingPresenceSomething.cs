@@ -20,7 +20,7 @@ namespace lb11.Service
             }
             else if (item is IColection collection)
             {
-                foreach (var itm in collection.Colection)
+                foreach (var itm in collection.Collection)
                 {
                     if (itm == null) continue;
                     if (itm.Author.Equals(serchAuthor, StringComparison.OrdinalIgnoreCase))

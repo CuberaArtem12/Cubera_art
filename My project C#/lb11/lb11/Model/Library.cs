@@ -22,7 +22,7 @@ namespace lb11.Model
         }
         public override string ToString()
         {
-            return "Name: " + Name +"\n===Catalog===\n" + ServicePrintMass.PrintHorizontalMass(CatalogItems);
+            return "Name: " + Name +"\n===Catalog===\n" + ServicePrintMass.PrintVerticalMass(CatalogItems);
         }
        
 

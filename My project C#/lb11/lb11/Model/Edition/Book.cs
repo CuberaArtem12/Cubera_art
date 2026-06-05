@@ -8,7 +8,7 @@ using lb11.Service.ServicePrintFolger;
 
 namespace lb11.Model.Edition
 {
-    public class Book: ICatalogItem
+    public class Book: ICatalogItem, IGenres
     {
         public string Title { get; set; }
         public DateTime ReleaseDate { get; set; }

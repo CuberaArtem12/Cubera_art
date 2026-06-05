@@ -14,7 +14,7 @@ namespace lb11.Model.Edition
         public DateTime ReleaseDate { get; set; }
         public string Author { get; set; }
         public static int maximumNumber = 10;
-        public Book[] Colection { get; set; } = new Book[maximumNumber];
+        public Book[] Collection { get; set; } = new Book[maximumNumber];
         public Almanac()
         {
             Title = "unspecified";
@@ -27,11 +27,11 @@ namespace lb11.Model.Edition
             this.Title = Title;
             this.Author = Author;
             this.ReleaseDate = ReleaseDate;
-            this.Colection = BooksList;
+            this.Collection = BooksList;
         }
         public override string ToString()
         {
-          return "Almanac Title: " + Title + " Release Date: " + ReleaseDate + " Author " + Author +  " \n====Books:====\n " + ServicePrintMass.PrintVerticalMass(Colection) +"\nEnd Almanac\n"; 
+          return "Almanac Title: " + Title + " Release Date: " + ReleaseDate + " Author " + Author +  " \n====Books:====\n " + ServicePrintMass.PrintVerticalMass(Collection) +"\nEnd Almanac\n"; 
         }
     }
 }
