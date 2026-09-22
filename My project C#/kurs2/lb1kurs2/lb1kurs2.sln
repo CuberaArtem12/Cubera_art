@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37216.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lb1kurs2", "lb1kurs2\lb1kurs2.csproj", "{D45D277E-54E5-4EA6-9EE4-48527B40D270}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lb1_2kurs2", "lb1_2kurs2\lb1_2kurs2.csproj", "{CDF569EB-7B94-4091-802C-AA43FB739217}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lb1_3kurs2", "lb1_3kurs2\lb1_3kurs2.csproj", "{F6846396-82BF-4ACB-B852-B2B1683B790B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D45D277E-54E5-4EA6-9EE4-48527B40D270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D45D277E-54E5-4EA6-9EE4-48527B40D270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D45D277E-54E5-4EA6-9EE4-48527B40D270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D45D277E-54E5-4EA6-9EE4-48527B40D270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDF569EB-7B94-4091-802C-AA43FB739217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDF569EB-7B94-4091-802C-AA43FB739217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDF569EB-7B94-4091-802C-AA43FB739217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDF569EB-7B94-4091-802C-AA43FB739217}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6846396-82BF-4ACB-B852-B2B1683B790B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6846396-82BF-4ACB-B852-B2B1683B790B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6846396-82BF-4ACB-B852-B2B1683B790B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6846396-82BF-4ACB-B852-B2B1683B790B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {33CFA20A-B6D8-4C97-9A39-1DA235F654E7}
+	EndGlobalSection
+EndGlobal
