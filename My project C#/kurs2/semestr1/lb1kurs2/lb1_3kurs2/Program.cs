@@ -13,14 +13,13 @@ namespace lb1_3kurs2
               new Client("Track",2),
                new Client("Stalker",3)
             };
-            request = request.OrderByDescending(c=>c.priority).ToList();
-            Queue<Client> queueRequest = new Queue<Client>();
+            PriorityQueue<Client,int> priorityQueue=new PriorityQueue<Client, int>();
             List<PrintHistory> listpPrintHistory = new List<PrintHistory>();
             foreach (Client client in request) {
-                queueRequest.Enqueue(client);
+                priorityQueue.Enqueue(client,client.priority);
             }
-            while (queueRequest.Count > 0) {
-               var person= queueRequest.Dequeue();
+            while (priorityQueue.Count > 0) {
+               var person= priorityQueue.Dequeue();
                PrintHistory printHistory = new PrintHistory(person.name,DateTime.Now);
                listpPrintHistory.Add(printHistory);
             }

@@ -1,4 +1,5 @@
-﻿using lb1kurs2_1.Model;
+﻿using lb1kurs2.Enum;
+using lb1kurs2_1.Model;
 using lb1kurs2_1.Services;
 using lb1kurs2_1.Valid;
 
@@ -10,10 +11,10 @@ namespace lb1kurs2
         {
 
             Car[] carsmasive = new Car[] {
-             new Car("hors",190),
-             new Car("Link",200)
+            new Car("BMW", "X5", 190, new DateTime(2023, 5, 12), TypeFuel.Diesel),
+          new Car("Link & Co", "01", 200, new DateTime(2024, 8, 20), TypeFuel.Hybrid)
             };
-            var cars = new List<Car>() { new Car("Toyota", 100) };
+            var cars = new List<Car>() { new Car("Lamborghini", "Revuelto", 350, new DateTime(2023, 3, 29), TypeFuel.Hybrid) };
             ServiceList<Car> serviceList = new ServiceList<Car>(cars);
             foreach (var car in cars)
             {

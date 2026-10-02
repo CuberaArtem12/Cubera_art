@@ -10,25 +10,31 @@ namespace lb2_2kurs2.Service
 {
     internal class CountQuantityService
     {
-        public static int CountQuantity(List<Phone> List) {
-            var phoneNumCount = List
+        private List<Phone> mylist { get; set; } = new List<Phone>();
+        public CountQuantityService() { }
+        public CountQuantityService(List<Phone> mylist)
+        {
+            this.mylist = mylist;
+        }
+        public int CountQuantity() {
+            var phoneNumCount = mylist
                    .Select(s=>s);
             return phoneNumCount.Count();
         }
-        public static int CountQuantityPriceOver100(List<Phone> List) {
-            var сountQuantityPriceOver100 = List
+        public  int CountQuantityPriceOver100() {
+            var сountQuantityPriceOver100 = mylist
                 .Where(s => s.price > 100)
                 .Select(s => s);
             return сountQuantityPriceOver100.Count();
         }
-        public static int CountInPriceRange(List<Phone> List){
-            var countPhonesInPriceRange = List
+        public int CountInPriceRange(){
+            var countPhonesInPriceRange = mylist
                     .Where(s => s.price >= 400 && s.price<=700)
                     .Select(s => s);
             return countPhonesInPriceRange.Count();
         }
-        public static int CountByManufacturer(List<Phone> List, PhoneManufacturer manufacturer) {
-        var countByManufacturer = List
+        public  int CountByManufacturer( PhoneManufacturer manufacturer) {
+        var countByManufacturer = mylist
                 .Where(s=>s.phoneManufacturer== manufacturer)
                 .Select (s => s);
             return countByManufacturer.Count();

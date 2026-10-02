@@ -23,14 +23,15 @@ namespace lb2_2kurs2
                  new Phone("Xperia 1 V", PhoneManufacturer.Sony, 1199.00m, new DateOnly(2023, 7, 28)),
                  new Phone("Xperia 10 IV", PhoneManufacturer.Sony, 380.00m, new DateOnly(2022, 6, 30))
             };
-            Console.WriteLine($"Number of phones: {CountQuantityService.CountQuantity(phones)}");
-            Console.WriteLine($"number of phones with a price of more than a hundred: {CountQuantityService.CountQuantityPriceOver100(phones)}");
-            Console.WriteLine($"the number of phones priced between 400 and 700: {CountQuantityService.CountInPriceRange(phones)}");
+            CountQuantityService countQuantityService = new CountQuantityService(phones);
+            Console.WriteLine($"Number of phones: {countQuantityService.CountQuantity()}");
+            Console.WriteLine($"number of phones with a price of more than a hundred: {countQuantityService.CountQuantityPriceOver100()}");
+            Console.WriteLine($"the number of phones priced between 400 and 700: {countQuantityService.CountInPriceRange()}");
             PhoneManufacturer phoneManufacturer = PhoneManufacturer.Apple;
-            Console.WriteLine($"the number of phones from a <<{phoneManufacturer}>> manufacturer: {CountQuantityService.CountByManufacturer(phones, phoneManufacturer)}");
+            Console.WriteLine($"the number of phones from a <<{phoneManufacturer}>> manufacturer: {countQuantityService.CountByManufacturer(phoneManufacturer)}");
             var phoneMinPrice= phones
             .OrderBy(s=>s.price)
-            .FirstOrDefault();
+            .First();
             Console.WriteLine($"Phone with min price: {phoneMinPrice}");
             var phoneMaxPrice = phones
                 .MaxBy(s => s.price);
@@ -48,13 +49,13 @@ namespace lb2_2kurs2
             var fivecheapestPhone = phones
                 .OrderByDescending(s => s.price)
                 .Take(5)
-                .Select(s=>s).ToList();
+                .ToList();
             Console.WriteLine("The five cheapest phones: ");
             fivecheapestPhone.ForEach(el => Console.WriteLine(el));
             var fiveMostexpEnsivePhone = phones
                 .OrderBy(s => s.price)
                 .Take(5)
-                .Select(s => s).ToList();
+                .ToList();
             Console.WriteLine("The five most expensive phones: ");
             fiveMostexpEnsivePhone.ForEach(el => Console.WriteLine(el));
             var threeoldestPhone = phones

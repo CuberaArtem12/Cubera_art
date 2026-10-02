@@ -10,7 +10,7 @@ namespace lb2_3kurs2
                 "Tech Corp",
                 new DateOnly(2010, 4, 15),
                 new List<Employer> {
-                new President("Alexander", "Petrenko", new DateTime(1975, 5, 12), 120000m, 20.5, true, "Executive Management"),
+                new President("Alexander", "Petrenko", new DateTime(1975, 5, 12), 120000m, 1, true, "Executive Management"),
                 new Manager("Volodymyr", "Sydorenko", new DateTime(1990, 10, 15), 45000m, 8.0, true, "Project Management"),
                 new Manager("Zhenya", "Hnatiuk", new DateTime(1985, 3, 22), 50000m, 12.0, true, "HR"),
                 new Manager("Michael", "Moroz", new DateTime(1998, 7, 30), 35000m, 3.5, true, "Sales"),
@@ -29,18 +29,20 @@ namespace lb2_3kurs2
                 new Worker("Artem", "Lysenko", new DateTime(1996, 2, 24), 25000m, 5.0, false, "Turner")
                 }
             );
+            company.updateSalaryEmploee();
+            Console.WriteLine(company);
             var workerCount = company.Employees.OfType<Worker>().Count();
             Console.WriteLine($"Count worker company:{workerCount} ");
             decimal totalSalary = company.Employees.Sum(s => s.Salary);
             Console.WriteLine($"Total salary: {totalSalary}");
             var longest10WorkesExperience = company.Employees.OfType<Worker>().OrderByDescending(s => s.workExperience).Take(10).ToList();
-            var youngestInTop10Experience = longest10WorkesExperience.Where(s=>s.HasHigherEducation==true).MaxBy(s => s.BirthDate);
+            var youngestInTop10Experience = longest10WorkesExperience.Where(s=>s.haveHigherEducation == true).MaxBy(s => s.BirthDate);
             Console.WriteLine($"The youngest person with a higher education among the ten workers with the longest tenure:\n {youngestInTop10Experience}");
             var managers = company.Employees.OfType<Manager>();
             var youngestManager = managers.MaxBy(s=>s.BirthDate);
             var oldestManager = managers.MinBy(s=>s.BirthDate);
             Console.WriteLine($"youngest manager: {youngestManager}\nand\noldest manager{oldestManager}");
-            var workersBornInOctoberGrouped = company.Employees.OfType<Worker>().Where(s => s.BirthDate.Month == 10).GroupBy(s=>s.ProfessionalFocus);
+            var workersBornInOctoberGrouped = company.Employees.OfType<Worker>().Where(s => s.BirthDate.Month == 10).GroupBy(s=>s.professionalFocus);
             Console.WriteLine("Career paths of workers born in October: ");
             foreach (var group in workersBornInOctoberGrouped) {
                 Console.WriteLine($"professional focus: {group.Key}");
